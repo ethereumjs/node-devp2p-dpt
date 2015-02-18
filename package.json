@@ -1,0 +1,22 @@
+{
+  "name": "ethereumjs-dht",
+  "version": "0.0.1",
+  "description": "an implemention of ethereum's DHT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mjbecze <mb@ethdev.com>",
+  "license": "GPL",
+  "bin": {
+    "ethdht": "./bin/dht"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "ethereumjs-util": "0.0.7",
+    "k-bucket": "^0.4.2",
+    "rlp": "0.0.12",
+    "secp256k1": "0.0.15",
+    "semaphore": "^1.0.1"
+  }
+}

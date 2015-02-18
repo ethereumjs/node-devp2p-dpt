@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+/*
+ * SETTINGS
+ */
+////////////////
+const port = 30306;
+const externalAddress = '1270.0.0.1';
+const privateKey = new Buffer('18f9226f2b10bafffbe7fe2a864b220eade9f6b76b44b71925653089c581485e', 'hex');
+const bootStrapAddress = 'poc-8.ethdev.com';
+const bootStrapPort = 30303;
+const timeout = 6000
+///////////////
+
+//requires
+const DHT = require('../lib/index.js');
+
+var dht = new DHT({
+  secretKey: privateKey,
+  port: port,
+  address: externalAddress,
+  maxPeers: 10,
+  timeout: timeout
+});
+
+dht.socket.on('message', function(msg, rinfo){
+  console.log("server got msg from " + rinfo.address + ":" + rinfo.port);
+});
+
+dht.on('ping', function(ping, peer) {
+  console.log('got ping ---- ');
+});
+
+dht.on('pong', function(pong, peer) {
+  console.log('got pong: ' + peer);
+});
+
+dht.on('findNode', function(findNode, peer) {
+  console.log('findNode----');
+  console.log(findNode.id.toString('hex'));
+});
+
+dht.on('neighbors', function(neighbors, peer) {
+  console.log('neighbors----');
+  neighbors.forEach(function(n){
+    console.log('adding: ' + n.id.toString('hex'));
+  });
+});
+
+//bootstrap
+const introPeer = {
+  address: bootStrapAddress,
+  port: bootStrapPort
+};
+
+dht.bootStrap([introPeer], function() {
+  console.log('done bootStraping');
+});
