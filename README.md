@@ -1,4 +1,4 @@
-# SYNOPSIS
+# SYNOPSIS [![Build Status](https://travis-ci.org/ethereum/ethereumjs-dht.svg)](https://travis-ci.org/ethereum/ethereumjs-dht)
 An node.js implementation of ethereum's DHT. 
 
 # EXAMPLE
@@ -23,6 +23,14 @@ Create a New DHT with the following options
   - `externalAddress`- the external address given as an `String`
 
 ### `DHT` methods
+#### `dht.bind([port], [address])
+Binds the port
+- `port` 
+- `address`
+
+#### `dht.close()`
+Unbinds the port
+
 #### `dht.bootstrap(introPeers)`
 Bootstraps the DHT given an array of peers to connect to.
 - `introPeers` - an `Array` of peers to try to connect to. They should be objects in following format.
