@@ -8,6 +8,8 @@ For a basic node implementation see [bin/dht](bin/dht)
 - [`DHT`](#DHT)
     - [`new DHT(options)`](#new-dht-options)
     - [`DHT` methods](#network-methods)
+      - [`dht.bind([port], [address])`](#dhtbindport-address)
+      - [`dht.close()`](#dhtclose)
       - [`dht.bootstrap(introPeers)`](#dhtboostrapintropeers)
     - [`DHT` events](#dht-events)
 
@@ -23,7 +25,7 @@ Create a New DHT with the following options
   - `externalAddress`- the external address given as an `String`
 
 ### `DHT` methods
-#### `dht.bind([port], [address])
+#### `dht.bind([port], [address])`
 Binds the port
 - `port` 
 - `address`
