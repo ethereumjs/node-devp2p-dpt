@@ -1,5 +1,5 @@
 const tape = require('tape');
-const DHT = require('../index2.js');
+const DHT = require('../index.js');
 
 var dht;
 
