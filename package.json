@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "mjbecze <mb@ethdev.com>",
+  "author": {
+    "name": "mjbecze",
+    "email": "mb@ethdev.com"
+  },
   "license": "GPL",
   "bin": {
     "ethdht": "./bin/dht"
@@ -18,5 +21,14 @@
     "rlp": "0.0.12",
     "secp256k1": "0.0.15",
     "semaphore": "^1.0.1"
+  },
+  "readme": "# SYNOPSIS\nAn node.js implementation of ethereum's DHT. \n\n# EXAMPLE\nFor a basic node implementation see [bin/dht](bin/dht)\n\n# API\n- [`DHT`](#DHT)\n    - [`new DHT(options)`](#new-dht-options)\n    - [`DHT` methods](#network-methods)\n      - [`dht.bootstrap(introPeers)`](#dhtboostrapintropeers)\n    - [`DHT` events](#dht-events)\n\n## DHT\n### `new DHT(options)`\nCreate a New DHT with the following options\n -`options`\n  - `secretKey` - a 32 byte `Buffer` from which the pubic key is derived\n  - `timeout` - an Interger specifing the wait period in milliseconds to wait for peers to respond\n  - `port` - the port to listen to given as an `Number`\n  - `address` - the address to listen to given as a `String`\n  - `externalPort`- the external port given as an `Number`\n  - `externalAddress`- the external address given as an `String`\n\n### `DHT` methods\n#### `dht.bootstrap(introPeers)`\nBootstraps the DHT given an array of peers to connect to.\n- `introPeers` - an `Array` of peers to try to connect to. They should be objects in following format.\n```\n{\n  address: String\n  port: Number\n}\n```\n\n### `DHT` events\nThe DHT object inherits from Events.EventEmitter and emits the following events. \n- `ping` - Fires when receiving a Ping. Provides a parsed ping packets and the peer it came from\n- `pong` - Fires when receiving a pong. Provides a parsed ping packets and the peer it came from\n- `findNode` - Fires when receiving a findNode. Provides a parsed ping packets and the peer it came from\n- `neighbors`-  Fires when receiving a neighbors. Provides a parsed ping packets and the peer it came from\n- `error` - Provides and error message \n\n# CONTRIBUTIONS\n\nPatches welcome! Contributors are listed in the `package.json` file.\nPlease run the tests before opening a pull request and make sure that you are\npassing all of them.\n\nIf you would like to contribute, but don't know what to work on, check\nthe issues list or ask on the forms or on IRC.\n\n* [issues](http://github.com/ethereum/ethereumjs-lib/issues)\n* [task tracker](https://waffle.io/ethereum/ethereumjs-lib)\n* [forum](https://forum.ethereum.org/categories/node-ethereum)\n* #ethereum-dev on irc.freenode.net\n\n# BUGS\n\nWhen you find issues, please report them:\n\n* [web](http://github.com/ethereum/ethereumjs-dht/issues)\n* [email](mailto:mb@ethdev.com)\n\nYou can also look for null_radix in #ethereum-dev on irc://irc.freenode.net. \n\n# LISCENCE\nGPL3\n",
+  "readmeFilename": "README.md",
+  "_id": "ethereumjs-dht@0.0.1",
+  "_shasum": "f3cd5e5ca35923629c067c2ddf4181d3dd51185b",
+  "_resolved": "git+https://github.com/ethereum/ethereumjs-dht#3c6a0dde70f38762ee353fa3b60d24000be79168",
+  "_from": "git+https://github.com/ethereum/ethereumjs-dht",
+  "devDependencies": {
+    "tape": "^3.5.0"
   }
 }

@@ -17,7 +17,7 @@ const DHT = require('../lib/index.js');
 var dht = new DHT({
   secretKey: privateKey,
   port: port,
-  address: externalAddress,
+  externalAddress: externalAddress,
   maxPeers: 10,
   timeout: timeout
 });
@@ -52,6 +52,7 @@ const introPeer = {
   port: bootStrapPort
 };
 
+dht.bind();
 dht.bootStrap([introPeer], function() {
   console.log('done bootStraping');
 });
