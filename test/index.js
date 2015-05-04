@@ -1,27 +1,51 @@
 const tape = require('tape');
 const DHT = require('../index.js');
-
-var dht;
+const crypto = require('crypto');
 
 const port = 30306;
-const privateKey = new Buffer('18f9226f2b10bafffbe7fe2a864b220eade9f6b76b44b71925653089c581485e', 'hex');
 
-tape('sanity checks', function(t){
-  t.doesNotThrow(function(){
+tape('sanity checks', function(t) {
+  var dht;
+  t.doesNotThrow(function() {
     dht = new DHT({
       port: port,
-      secretKey: privateKey
-    },null, 'should consturct');
+      secretKey: crypto.randomBytes(32)
+    }, null, 'should consturct');
   });
 
-  t.doesNotThrow(function(){
+  t.doesNotThrow(function() {
     dht.bind();
   }, null, 'should listen');
 
 
-  t.doesNotThrow(function(){
+  t.doesNotThrow(function() {
     dht.close();
   }, null, 'should close');
 
   t.end();
+});
+
+tape('ping pong test', function(t) {
+  var dht = new DHT({
+    port: port,
+    secretKey: crypto.randomBytes(32)
+  });
+
+  var dht2 = new DHT({
+    port: port + 2,
+    secretKey: crypto.randomBytes(32)
+  });
+
+  dht.bind();
+  dht2.bind();
+
+  dht2.ping({
+    port: port,
+    address: '0.0.0.0'
+  }, function(err) {
+    t.assert(err === undefined)
+    dht.close();
+    dht2.close();
+    t.end()
+  });
 });
