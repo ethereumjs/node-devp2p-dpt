@@ -31,6 +31,14 @@ dht.on('neighbors', function(neighbors, peer) {
   });
 });
 
+dht.on('newPeer', function(neighbors, peer) {
+  console.log('new Node----');
+});
+
+dht.on('removePeer', function(neighbors, peer) {
+  console.log('remove Node----');
+});
+
 dht.on('error', function() {
   console.log('Leeeeeeeeeeeeeroy!');
 });
