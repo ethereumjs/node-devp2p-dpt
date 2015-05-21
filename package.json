@@ -1,6 +1,6 @@
 {
   "name": "ethereumjs-dht",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "an implemention of ethereum's DHT",
   "main": "index.js",
   "scripts": {

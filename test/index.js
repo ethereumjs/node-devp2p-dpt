@@ -27,17 +27,15 @@ tape('sanity checks', function(t) {
 
 tape('ping pong test', function(t) {
   var dht = new DHT({
-    port: port,
     secretKey: crypto.randomBytes(32)
   });
 
   var dht2 = new DHT({
-    port: port + 2,
     secretKey: crypto.randomBytes(32)
   });
 
-  dht.bind();
-  dht2.bind();
+  dht.bind(port, '0.0.0.0');
+  dht2.bind(port + 1, '0.0.0.0');
 
   dht2.ping({
     port: port,

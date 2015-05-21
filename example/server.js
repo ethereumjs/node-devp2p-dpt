@@ -1,14 +1,17 @@
 const DHT = require('../index.js');
 
+const bootStrapAddress = '0.0.0.0';
+const bootStrapPort = 30303;
+
 var dht = new DHT({
   secretKey: new Buffer('d772e3d6a001a38064dd23964dd2836239fa0e6cec8b28972a87460a17210fe9', 'hex'),
-  timeout: 6000
-    //address
+  timeout: 6000,
+  address: '64.184.44.155'
 });
 
-// dht.socket.on('message', function(msg, rinfo) {
-//   // console.log('server got msg from ' + rinfo.address + ":" + rinfo.port);
-// });
+dht.socket.on('message', function(msg, rinfo) {
+  console.log('server got msg from ' + rinfo.address + ":" + rinfo.port);
+});
 
 dht.on('ping', function(ping, peer) {
   console.log('got ping ---- ');
@@ -39,8 +42,17 @@ dht.on('removePeer', function(neighbors, peer) {
   console.log('remove Node----');
 });
 
-dht.on('error', function() {
-  console.log('Leeeeeeeeeeeeeroy!');
+dht.on('error', function(e) {
+  console.log('error: ' + e );
 });
 
 dht.bind(30301, '0.0.0.0');
+
+const introPeer = {
+  address: bootStrapAddress,
+  port: bootStrapPort
+};
+
+dht.bootStrap([introPeer], function() {
+  console.log('done bootStraping');
+});
