@@ -2,7 +2,7 @@
 An node.js implementation of ethereum's DHT. 
 
 # EXAMPLE
-For a basic node implementation see [bin/dht](bin/dht)
+For a basic example see [example/dht](example/dht)
 
 # API
 - [`DHT`](#DHT)
@@ -19,21 +19,20 @@ Create a New DHT with the following options
  -`options`
   - `secretKey` - a 32 byte `Buffer` from which the pubic key is derived
   - `timeout` - an Interger specifing the wait period in milliseconds to wait for peers to respond
-  - `port` - the port to listen to given as an `Number`
-  - `address` - the address to listen to given as a `String`
-  - `externalPort`- the external port given as an `Number`
-  - `externalAddress`- the external address given as an `String`
+  - `port` - the port external port that this peer is listening to. If not specifed the port that is used in `bound` will be used
+  - `address` - the external address that this peer is listening  to. if not specifed the port that is used in `bound` will be used
 
 ### `DHT` methods
-#### `dht.bind([port], [address])`
+#### `dht.bind(port, address, [cb])`
 Binds the port
 - `port` 
 - `address`
+- `cb` the callback
 
-#### `dht.close()`
+#### `dht.close([cb])`
 Unbinds the port
 
-#### `dht.bootstrap(introPeers)`
+#### `dht.bootstrap(introPeers, [cb])`
 Bootstraps the DHT given an array of peers to connect to.
 - `introPeers` - an `Array` of peers to try to connect to. They should be objects in following format.
 ```
@@ -42,6 +41,9 @@ Bootstraps the DHT given an array of peers to connect to.
   port: Number
 }
 ```
+
+#### `dht.refresh()`
+Refreshes the nodes and searches for new nodes
 
 ### `DHT` events
 The DHT object inherits from Events.EventEmitter and emits the following events. 
