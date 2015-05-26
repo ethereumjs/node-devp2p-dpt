@@ -1,6 +1,9 @@
 # SYNOPSIS [![Build Status](https://travis-ci.org/ethereum/node-devp2p-dpt.svg?branch=master)](https://travis-ci.org/ethereum/node-devp2p-dpt)
 An node.js implementation of ethereum's DPT. 
 
+# INSTALL  
+`npm install devp2p-dpt` 
+
 # EXAMPLE
 For a basic example see [example/](example/)
 
