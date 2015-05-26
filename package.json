@@ -1,6 +1,6 @@
 {
-  "name": "ethereumjs-dht",
-  "version": "0.0.8",
+  "name": "devp2p-dpt",
+  "version": "0.0.1",
   "description": "an implemention of ethereum's DHT",
   "main": "index.js",
   "scripts": {
@@ -11,12 +11,9 @@
     "email": "mb@ethdev.com"
   },
   "license": "GPL",
-  "bin": {
-    "ethdht": "./bin/dht"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ethereum/ethereumjs-dht.git"
+    "url": "https://github.com/ethereum/node-devp2p-dpt.git"
   },
   "dependencies": {
     "async": "^0.9.0",
