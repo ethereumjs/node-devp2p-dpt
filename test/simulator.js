@@ -2,7 +2,6 @@ const tape = require('tape');
 const DHT = require('../index.js');
 const crypto = require('crypto');
 const async = require('async');
-
 const port = 30306;
 const numOfNode = 16;
 
@@ -34,10 +33,7 @@ function connect(cb) {
   nodes[0].ping({
     address: '0.0.0.0',
     port: port + 1
-  }, function() {
-    console.log('connect');
-    cb()
-  });
+  }, cb);
 }
 
 function bootStrap(cb) {

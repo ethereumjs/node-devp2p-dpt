@@ -1,8 +1,5 @@
 const DHT = require('../index.js');
 
-const bootStrapAddress = '0.0.0.0';
-const bootStrapPort = 30303;
-
 var dht = new DHT({
   secretKey: new Buffer('d772e3d6a001a38064dd23964dd2836239fa0e6cec8b28972a87460a17210fe9', 'hex'),
   timeout: 6000
@@ -34,7 +31,9 @@ dht.on('neighbors', function(neighbors, peer) {
 });
 
 dht.on('newPeer', function(peer) {
-  dht.findNodes(dht.id, peer);
+  dht.findNodes(dht.id, peer, function(neighbors){
+    console.log(neighbors); 
+  });
 });
 
 dht.on('removePeer', function(neighbors, peer) {
@@ -47,6 +46,8 @@ dht.on('error', function(e) {
 
 dht.bind(30301, '0.0.0.0');
 
+const bootStrapAddress = '46.28.202.24';
+const bootStrapPort = 30303;
 const introPeer = {
   address: bootStrapAddress,
   port: bootStrapPort
