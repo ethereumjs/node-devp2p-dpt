@@ -5,8 +5,7 @@ const bootStrapPort = 30303;
 
 var dht = new DHT({
   secretKey: new Buffer('d772e3d6a001a38064dd23964dd2836239fa0e6cec8b28972a87460a17210fe9', 'hex'),
-  timeout: 6000,
-  address: '64.184.44.155'
+  timeout: 6000
 });
 
 dht.socket.on('message', function(msg, rinfo) {
@@ -29,13 +28,13 @@ dht.on('findNode', function(findNode, peer) {
 
 dht.on('neighbors', function(neighbors, peer) {
   console.log('neighbors----');
-  neighbors.forEach(function(n) {
-    console.log('adding: ' + n.id.toString('hex'));
-  });
+  // neighbors.forEach(function(n) {
+  //   console.log('adding: ' + n.id.toString('hex'));
+  // });
 });
 
-dht.on('newPeer', function(neighbors, peer) {
-  console.log('new Node----');
+dht.on('newPeer', function(peer) {
+  dht.findNodes(dht.id, peer);
 });
 
 dht.on('removePeer', function(neighbors, peer) {
@@ -53,6 +52,11 @@ const introPeer = {
   port: bootStrapPort
 };
 
-dht.bootStrap([introPeer], function() {
-  console.log('done bootStraping');
+dht.ping(introPeer, function(){
+  console.log("value");
+
 });
+
+// dht.bootStrap([introPeer], function() {
+//   console.log('done bootStraping');
+// });

@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const async = require('async');
 
 const port = 30306;
-const numOfNode = 10;
+const numOfNode = 16;
 
 var nodes = [];
 
@@ -12,14 +12,14 @@ function setup(cb) {
   for (var i = 0; i < numOfNode; i++) {
     var dht = new DHT({
       address: '0.0.0.0',
-      port: port + i,
+      udpPort: port + i,
       secretKey: crypto.randomBytes(32)
     });
     nodes.push(dht);
   }
 
   async.each(nodes, function(node, done) {
-    node.bind(node.port, '0.0.0.0', done);
+    node.bind(node.udpPort, '0.0.0.0', done);
   }, cb);
 }
 
