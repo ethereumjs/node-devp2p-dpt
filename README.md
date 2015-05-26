@@ -1,5 +1,5 @@
 # SYNOPSIS [![Build Status](https://travis-ci.org/ethereum/node-devp2p-dpt.svg?branch=master)](https://travis-ci.org/ethereum/node-devp2p-dpt)
-An node.js implementation of ethereum's DPT. 
+An node.js implementation of devp2p's Distrubuted Peer Table. A DPT is like DHT but just stores peering info.
 
 # INSTALL  
 `npm install devp2p-dpt` 
