@@ -3,7 +3,7 @@ const DHT = require('../index.js');
 const crypto = require('crypto');
 const async = require('async');
 const port = 30306;
-const numOfNode = 16;
+const numOfNode = 24;
 
 var nodes = [];
 
