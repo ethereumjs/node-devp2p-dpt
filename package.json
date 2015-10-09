@@ -1,6 +1,6 @@
 {
   "name": "devp2p-dpt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "an implemention of ethereum's DHT",
   "main": "index.js",
   "scripts": {
@@ -10,17 +10,17 @@
     "name": "mjbecze",
     "email": "mb@ethdev.com"
   },
-  "license": "GPL",
+  "license": "MPL-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ethereum/node-devp2p-dpt.git"
   },
   "dependencies": {
     "async": "^1.4.2",
-    "ethereumjs-util": "2.0.2",
-    "k-bucket": "^0.4.4",
+    "ethereumjs-util": "2.0.3",
+    "k-bucket": "^0.5.0",
     "rlp": "2.0.0",
-    "secp256k1": "1.1.3",
+    "secp256k1": "1.1.4",
     "semaphore": "^1.0.1"
   },
   "devDependencies": {
