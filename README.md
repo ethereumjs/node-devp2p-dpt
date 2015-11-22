@@ -80,4 +80,4 @@ When you find issues, please report them:
 You can also look for null_radix in #ethereum-dev on irc://irc.freenode.net. 
 
 # LISCENCE
-GPL3
+[MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/)
