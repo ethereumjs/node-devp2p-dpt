@@ -1,49 +1,47 @@
-const tape = require('tape');
-const DHT = require('../index.js');
-const crypto = require('crypto');
+const tape = require('tape')
+const DHT = require('../index.js')
+const crypto = require('crypto')
 
-const port = 30306;
+const port = 30306
 
-tape('sanity checks', function(t) {
-  var dht;
-  t.doesNotThrow(function() {
+tape('sanity checks', function (t) {
+  var dht
+  t.doesNotThrow(function () {
     dht = new DHT({
       port: port,
       secretKey: crypto.randomBytes(32)
-    }, null, 'should consturct');
-  });
+    })
+  })
 
-  t.doesNotThrow(function() {
-    dht.bind();
-  }, null, 'should listen');
+  t.equals(dht.id.length, 64, 'the ID should be an uncompressed publickey for some godforsaken reason')
 
+  t.doesNotThrow(function () {
+    dht.close()
+  }, null, 'should close')
 
-  t.doesNotThrow(function() {
-    dht.close();
-  }, null, 'should close');
+  t.end()
+})
 
-  t.end();
-});
-
-tape('ping pong test', function(t) {
+tape('ping pong test', function (t) {
   var dht = new DHT({
+    port: port,
+    address: '0.0.0.0',
     secretKey: crypto.randomBytes(32)
-  });
+  })
 
   var dht2 = new DHT({
+    port: port + 1,
+    address: '0.0.0.0',
     secretKey: crypto.randomBytes(32)
-  });
-
-  dht.bind(port, '0.0.0.0');
-  dht2.bind(port + 1, '0.0.0.0');
+  })
 
   dht2.ping({
     port: port,
     address: '0.0.0.0'
-  }, function(err) {
+  }, function (err) {
     t.assert(err === undefined)
-    dht.close();
-    dht2.close();
+    dht.close()
+    dht2.close()
     t.end()
-  });
-});
+  })
+})
