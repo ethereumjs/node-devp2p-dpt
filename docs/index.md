@@ -1,50 +1,68 @@
-# addPeer
+# DPT
 
-[lib/index.js:385-390](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L385-L390 "Source code on GitHub")
+[lib/index.js:103-147](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L103-L147 "Source code on GitHub")
+
+Creates a New DPT
+
+**Parameters**
+
+-   `opts`  The options object
+    -   `opts.secretKey` **Buffer** a 32 byte Buffer from which the public key is derived
+    -   `opts.port` **Interger** the port that this peer binds to
+    -   `opts.address` **String** the external address that this peer is listening to
+    -   `opts.timeout` **Interger** Specifies the wait period in milliseconds to wait for peers to respond. Defaults to 60000
+    -   `opts.refreshIntervial` **Interger** Specifies the wiat period in milliseconds between refreshing the table. Defaults to 360000
+    -   `opts.udpPort` **Interger** If the udp port and the tcp port are different then you need then use this option
+    -   `opts.tcpPort` **Interger** If the udp port and the tcp port are different then you need then use this option
+    -   `opts.publicUdpPort` **Interger** If your public udp port is different from the one you bind to then specify it here
+
+## addPeer
+
+[lib/index.js:425-430](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L425-L430 "Source code on GitHub")
 
 **Parameters**
 
 -   `peer`  {Object} and array of peers (POJO containing ip,  port and id) to connect to
 
-# bind
+## bind
 
-[lib/index.js:136-138](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L136-L138 "Source code on GitHub")
+[lib/index.js:156-158](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L156-L158 "Source code on GitHub")
 
-bind the upd socket to `this.udpPort` and `this.address`
+binds the upd socket to `this.udpPort` and `this.address`. This is called 
+automatically by the constuctor.
 
-# bootStrap
+## bootStrap
 
-[lib/index.js:372-379](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L372-L379 "Source code on GitHub")
+[lib/index.js:412-419](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L412-L419 "Source code on GitHub")
 
-connects to an array of nodes. Then does a `lookup` on `this.id` to populate
-the table
+connects to an array of nodes. Then does a recusive `lookup` on `this.id` to populate
+the table.
 
 **Parameters**
 
--   `peers`  {Array} and array of peers (POJO containing ip & port) to connect to
--   `cb`  
+-   `peers` **Array&lt;Peer&gt;** and array of peers (POJO containing ip & port) to connect to
+-   `cb` **Function** 
 
-# close
+## close
 
-[lib/index.js:144-147](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L144-L147 "Source code on GitHub")
+[lib/index.js:164-167](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L164-L167 "Source code on GitHub")
 
 closes the udp socket and clears any timers
 
-# findPeers
+## findPeers
 
-[lib/index.js:323-364](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L323-L364 "Source code on GitHub")
+[lib/index.js:362-403](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L362-L403 "Source code on GitHub")
 
-TODO: add option to stop searching once an ID is found
-does a recusive `findNodes` for an given ID
+Does a recusive `findNodes` for an given ID
 
 **Parameters**
 
 -   `id`  {String} the id to search for
 -   `cb`  {Function}
 
-# ping
+## ping
 
-[lib/index.js:199-238](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L199-L238 "Source code on GitHub")
+[lib/index.js:239-278](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L239-L278 "Source code on GitHub")
 
 pings a peer and wait for the pong
 
@@ -53,27 +71,48 @@ pings a peer and wait for the pong
 -   `peer`  {Peer}
 -   `cb`  {}
 
-# refresh
+## refresh
 
-[lib/index.js:396-402](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L396-L402 "Source code on GitHub")
+[lib/index.js:436-442](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L436-L442 "Source code on GitHub")
 
 refreshes a the peers by asking them for more peers
 
-# parse
+# Peer
 
-[lib/index.js:37-79](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L37-L79 "Source code on GitHub")
+[lib/index.js:10-10](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L10-L10 "Source code on GitHub")
 
-Parsing Functions
+**Properties**
 
-# util
+-   `id` **Buffer** a 64 byte public key that is used as the peers id
+-   `address` **String** the address of the peer
+-   `port` **Integer** the remote port
 
-[lib/index.js:11-11](https://github.com/ethereum/node-devp2p-dpt/blob/2afdf898f095c9e69e278f09a65321927b7e971c/lib/index.js#L11-L11 "Source code on GitHub")
+# error
 
-Implements ethereum's DPT
+[lib/index.js:138-138](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L138-L138 "Source code on GitHub")
 
-Peer stucuture
-{
-  id: Buffer
-  address: String
-  port: int
-}
+Provides and error message
+
+# findNode
+
+[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L212-L212 "Source code on GitHub")
+
+Fires when receiving a findNode. Provides a parsed findNode packet and the peer it came from
+
+# neighbors
+
+[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L212-L212 "Source code on GitHub")
+
+Fires when receiving a neighbors. Provides a parsed neighbors packets and the peer it came from
+
+# ping
+
+[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L212-L212 "Source code on GitHub")
+
+Fires when receiving a Ping. Provides a parsed ping packets and the peer it came from
+
+# pong
+
+[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/1352b4b8661c77f6228e959ef39254951e50cab5/lib/index.js#L212-L212 "Source code on GitHub")
+
+Fires when receiving a pong. Provides a parsed pong packets and the peer it came from
