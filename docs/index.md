@@ -1,6 +1,6 @@
 # DPT
 
-[lib/index.js:103-147](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L103-L147 "Source code on GitHub")
+[lib/index.js:104-148](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L104-L148 "Source code on GitHub")
 
 Creates a New DPT
 
@@ -18,7 +18,7 @@ Creates a New DPT
 
 ## addPeer
 
-[lib/index.js:425-430](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L425-L430 "Source code on GitHub")
+[lib/index.js:426-431](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L426-L431 "Source code on GitHub")
 
 **Parameters**
 
@@ -26,14 +26,14 @@ Creates a New DPT
 
 ## bind
 
-[lib/index.js:156-158](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L156-L158 "Source code on GitHub")
+[lib/index.js:157-159](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L157-L159 "Source code on GitHub")
 
 binds the upd socket to `this.udpPort` and `this.address`. This is called
 automatically by the constuctor.
 
 ## bootStrap
 
-[lib/index.js:412-419](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L412-L419 "Source code on GitHub")
+[lib/index.js:413-420](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L413-L420 "Source code on GitHub")
 
 connects to an array of nodes. Then does a recusive `lookup` on `this.id` to populate
 the table.
@@ -45,13 +45,13 @@ the table.
 
 ## close
 
-[lib/index.js:164-167](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L164-L167 "Source code on GitHub")
+[lib/index.js:165-168](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L165-L168 "Source code on GitHub")
 
 closes the udp socket and clears any timers
 
 ## findNodes
 
-[lib/index.js:286-311](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L286-L311 "Source code on GitHub")
+[lib/index.js:287-312](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L287-L312 "Source code on GitHub")
 
 Sends the Finds nodes packet and waits for a response
 
@@ -63,7 +63,7 @@ Sends the Finds nodes packet and waits for a response
 
 ## findPeers
 
-[lib/index.js:362-403](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L362-L403 "Source code on GitHub")
+[lib/index.js:363-404](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L363-L404 "Source code on GitHub")
 
 Does a recusive `findNodes` for an given ID
 
@@ -74,7 +74,7 @@ Does a recusive `findNodes` for an given ID
 
 ## ping
 
-[lib/index.js:239-278](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L239-L278 "Source code on GitHub")
+[lib/index.js:240-279](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L240-L279 "Source code on GitHub")
 
 pings a peer and wait for the pong
 
@@ -85,13 +85,15 @@ pings a peer and wait for the pong
 
 ## refresh
 
-[lib/index.js:436-442](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L436-L442 "Source code on GitHub")
+[lib/index.js:437-443](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L437-L443 "Source code on GitHub")
 
 refreshes a the peers by asking them for more peers
 
 # Peer
 
-[lib/index.js:10-10](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L10-L10 "Source code on GitHub")
+[lib/index.js:11-11](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L11-L11 "Source code on GitHub")
+
+The peer object is used to decribe peer
 
 **Properties**
 
@@ -101,30 +103,30 @@ refreshes a the peers by asking them for more peers
 
 # error
 
-[lib/index.js:138-138](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L138-L138 "Source code on GitHub")
+[lib/index.js:139-139](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L139-L139 "Source code on GitHub")
 
 Provides and error message
 
 # findNode
 
-[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L212-L212 "Source code on GitHub")
+[lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a findNode. Provides a parsed findNode packet and the peer it came from
 
 # neighbors
 
-[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L212-L212 "Source code on GitHub")
+[lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a neighbors. Provides a parsed neighbors packets and the peer it came from
 
 # ping
 
-[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L212-L212 "Source code on GitHub")
+[lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a Ping. Provides a parsed ping packets and the peer it came from
 
 # pong
 
-[lib/index.js:212-212](https://github.com/ethereum/node-devp2p-dpt/blob/7c95d1f6f2d609a46638c63a198fc7c8f9769a9b/lib/index.js#L212-L212 "Source code on GitHub")
+[lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a pong. Provides a parsed pong packets and the peer it came from
