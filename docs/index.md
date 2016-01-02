@@ -89,7 +89,8 @@ pings a peer and wait for the pong
 
 refreshes a the peers by asking them for more peers
 
-# Peer
+# Objects
+## Peer
 
 [lib/index.js:11-11](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L11-L11 "Source code on GitHub")
 
@@ -101,31 +102,32 @@ The peer object is used to decribe peer
 -   `address` **String** the address of the peer
 -   `port` **Integer** the remote port
 
-# error
+# Events
+## error
 
 [lib/index.js:139-139](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L139-L139 "Source code on GitHub")
 
 Provides and error message
 
-# findNode
+## findNode
 
 [lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a findNode. Provides a parsed findNode packet and the peer it came from
 
-# neighbors
+## neighbors
 
 [lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a neighbors. Provides a parsed neighbors packets and the peer it came from
 
-# ping
+## ping
 
 [lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
 Fires when receiving a Ping. Provides a parsed ping packets and the peer it came from
 
-# pong
+## pong
 
 [lib/index.js:213-213](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L213-L213 "Source code on GitHub")
 
