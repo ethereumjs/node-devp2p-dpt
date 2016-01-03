@@ -14,6 +14,7 @@ function setup (cb) {
       udpPort: port + i,
       secretKey: crypto.randomBytes(32)
     })
+    dht.bind()
     nodes.push(dht)
   }
 

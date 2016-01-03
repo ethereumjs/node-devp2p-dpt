@@ -8,6 +8,8 @@ var dht = new DHT({
   secretKey: privateKey
 }, null, 'should consturct')
 
+dht.bind()
+
 dht.on('message', function () {
   console.log('get message')
 })

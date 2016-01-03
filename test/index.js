@@ -29,11 +29,15 @@ tape('ping pong test', function (t) {
     secretKey: crypto.randomBytes(32)
   })
 
+  dht.bind()
+
   var dht2 = new DHT({
     port: port + 1,
     address: '0.0.0.0',
     secretKey: crypto.randomBytes(32)
   })
+
+  dht2.bind()
 
   dht2.ping({
     port: port,

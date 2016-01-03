@@ -8,6 +8,7 @@ var dht = new DHT({
   secretKey: privateKey
 }, null, 'should consturct')
 
+dht.bind()
 console.log('id: ' + dht.id.toString('hex'))
 
 dht.ping({

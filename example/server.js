@@ -8,6 +8,8 @@ var dht = new DHT({
   address: '0.0.0.0'
 })
 
+dht.bind()
+
 dht.socket.on('message', function (msg, rinfo) {
   console.log('server got msg from ' + rinfo.address + ':' + rinfo.port)
 })
