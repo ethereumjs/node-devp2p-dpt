@@ -28,8 +28,7 @@ Creates a New DPT
 
 [lib/index.js:157-159](https://github.com/ethereum/node-devp2p-dpt/blob/a87ac5d282d3a5d0fee309462b69240917f517c5/lib/index.js#L157-L159 "Source code on GitHub")
 
-binds the upd socket to `this.udpPort` and `this.address`. This is called
-automatically by the constuctor.
+Binds the upd socket to `this.udpPort` and `this.address`.
 
 ## bootStrap
 
