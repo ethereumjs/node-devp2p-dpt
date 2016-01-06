@@ -17,8 +17,12 @@
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ethereum/node-devp2p-dpt.git"
+    "url": "https://github.com/ethereumjs/node-devp2p-dpt.git"
   },
+  "bugs": {
+    "url": "https://github.com/ethereumjs/node-devp2p-dpt/issues"
+  },
+  "homepage": "https://github.com/ethereumjs/node-devp2p-dpt",
   "dependencies": {
     "async": "^1.4.2",
     "ethereumjs-util": "^2.3.2",
