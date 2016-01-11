@@ -14,6 +14,9 @@
     "name": "mjbecze",
     "email": "mb@ethdev.com"
   },
+  "contributors": [
+    "Alex Beregszaszi <alex@rtfs.hu>"
+  ],
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
