@@ -3,7 +3,7 @@ const DHT = require('../index.js')
 const crypto = require('crypto')
 const async = require('async')
 
-const localIp = '0.0.0.0'
+const localIp = '127.0.0.1'
 const port = 30306
 const numOfNode = 15
 
