@@ -2,6 +2,8 @@ const tape = require('tape')
 const DHT = require('../index.js')
 const crypto = require('crypto')
 const async = require('async')
+
+const localIp = '0.0.0.0'
 const port = 30306
 const numOfNode = 15
 
@@ -10,7 +12,7 @@ var nodes = []
 function setup (cb) {
   for (var i = 0; i < numOfNode; i++) {
     var dht = new DHT({
-      address: '0.0.0.0',
+      address: localIp,
       udpPort: port + i,
       secretKey: crypto.randomBytes(32)
     })
@@ -36,7 +38,7 @@ function checkNodes (t) {
 
 function connect (cb) {
   nodes[0].ping({
-    address: '0.0.0.0',
+    address: localIp,
     port: port + 1
   }, cb)
 }
@@ -47,7 +49,7 @@ function bootStrap (cb) {
   async.eachSeries(bootNodes, function (node, done) {
     printNodes()
     node.bootStrap([{
-      address: '0.0.0.0',
+      address: localIp,
       port: port + i
     }], function () {
       setTimeout(done, 100)

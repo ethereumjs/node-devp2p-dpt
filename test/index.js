@@ -2,6 +2,7 @@ const tape = require('tape')
 const DHT = require('../index.js')
 const crypto = require('crypto')
 
+const localIp = '0.0.0.0'
 const port = 30306
 
 tape('sanity checks', function (t) {
@@ -25,7 +26,7 @@ tape('sanity checks', function (t) {
 tape('ping pong test', function (t) {
   var dht = new DHT({
     port: port,
-    address: '0.0.0.0',
+    address: localIp,
     secretKey: crypto.randomBytes(32)
   })
 
@@ -33,7 +34,7 @@ tape('ping pong test', function (t) {
 
   var dht2 = new DHT({
     port: port + 1,
-    address: '0.0.0.0',
+    address: localIp,
     secretKey: crypto.randomBytes(32)
   })
 
@@ -41,7 +42,7 @@ tape('ping pong test', function (t) {
 
   dht2.ping({
     port: port,
-    address: '0.0.0.0'
+    address: localIp
   }, function (err) {
     t.assert(err === undefined)
     dht.close()
