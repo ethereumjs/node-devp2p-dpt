@@ -16,5 +16,11 @@ For a basic example see [example/](example/)
 # API
 [API](docs/index.md)
 
+# Reference
+
+- [RLPx Node Discovery Protocol](https://github.com/ethereum/go-ethereum/wiki/RLPx-----Node-Discovery-Protocol) (outdated)
+- [Node discovery protocol](https://github.com/ethereum/wiki/wiki/Node-discovery-protocol)
+- [RLPx: Cryptographic Network & Transport Protocol](https://github.com/ethereum/devp2p/blob/master/rlpx.md)
+
 # LISCENCE
 [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/)
