@@ -1,31 +1,34 @@
 {
   "name": "devp2p-dpt",
   "version": "1.0.1",
-  "description": "an implemention of ethereum's DHT",
-  "main": "index.js",
-  "scripts": {
-    "coverage": "istanbul cover tape ./test/*.js",
-    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
-    "lint": "standard",
-    "test": "tape ./test/*.js",
-    "build:docs": "documentation --github  -f md ./lib/index.js > ./docs/index.md"
+  "description": "An implemention of ethereum's DHT",
+  "keywords": [
+    "ethereum"
+  ],
+  "homepage": "https://github.com/ethereumjs/node-devp2p-dpt",
+  "bugs": {
+    "url": "https://github.com/ethereumjs/node-devp2p-dpt/issues"
   },
-  "author": {
-    "name": "mjbecze",
-    "email": "mb@ethdev.com"
-  },
+  "license": "MPL-2.0",
+  "author": "Martin Becze <mb@ethdev.com>",
   "contributors": [
     "Alex Beregszaszi <alex@rtfs.hu>"
   ],
-  "license": "MPL-2.0",
+  "files": [
+    "lib"
+  ],
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ethereumjs/node-devp2p-dpt.git"
   },
-  "bugs": {
-    "url": "https://github.com/ethereumjs/node-devp2p-dpt/issues"
+  "scripts": {
+    "build:docs": "documentation --github  -f md ./lib/index.js > ./docs/index.md",
+    "coverage": "istanbul cover tape ./test/*.js",
+    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+    "lint": "standard",
+    "unit": "tape ./test/*.js"
   },
-  "homepage": "https://github.com/ethereumjs/node-devp2p-dpt",
   "dependencies": {
     "async": "^1.4.2",
     "ethereumjs-util": "^2.3.2",

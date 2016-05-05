@@ -1,5 +1,5 @@
 const tape = require('tape')
-const DHT = require('../index.js')
+const DHT = require('../lib')
 const crypto = require('crypto')
 const async = require('async')
 
