@@ -1,6 +1,6 @@
 {
   "name": "devp2p-dpt",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "An implemention of ethereum's DHT",
   "keywords": [
     "ethereum"
