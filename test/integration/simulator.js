@@ -6,6 +6,7 @@ const async = require('async')
 const localhost = '127.0.0.1'
 const port = 30306
 const numOfNode = 15
+const timeout = 1000
 
 var nodes = []
 
@@ -20,10 +21,10 @@ function setup (cb) {
         udpPort: port + i,
         tcpPort: null
       },
-      timeout: 100,
+      timeout: timeout,
       refreshInterval: 250
     })
-    dpt.bind(port + i)
+    dpt.start()
     nodes.push(dpt)
   }
 
@@ -35,7 +36,7 @@ function connect (cb) {
   nodes[0].addPeers([{ address: localhost, port: port + 1 }], (err, peers) => {
     printNodes()
     if (err === null) err = peers[0][0]
-    setTimeout(() => cb(err), 100)
+    setTimeout(() => cb(err), timeout)
   })
 }
 
@@ -53,7 +54,7 @@ function bootstrap (cb) {
 function refresh (cb) {
   console.log('refresh..')
   async.eachSeries(nodes, (node, done) => {
-    node.refresh((err, errs) => {
+    node.refresh(node.getPeers(), (err, errs) => {
       printNodes()
       if (err === null) {
         for (let _err of errs) {
@@ -77,7 +78,7 @@ function checkNodes (t) {
 
 function shutDown (cb) {
   async.each(nodes, (node, done) => {
-    node.close()
+    node.stop()
     done()
   }, cb)
 }
